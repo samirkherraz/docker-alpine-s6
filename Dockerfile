@@ -7,6 +7,4 @@ RUN wget https://github.com/just-containers/s6-overlay/releases/download/${S6_OV
     chmod -R u+x /etc/s6 && \
     chmod -R u+x /etc/cont-init.d
 
-ADD /install /
-
 ENTRYPOINT ["/init"]
