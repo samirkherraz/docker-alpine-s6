@@ -7,6 +7,8 @@ RUN wget https://github.com/just-containers/s6-overlay/releases/download/${S6_OV
     tar xfz s6-overlay-amd64.tar.gz -C / && \
     rm s6-overlay-amd64.tar.gz && \
     chmod -R u+x /etc/s6 && \
-    chmod -R u+x /etc/cont-init.d
+    chmod -R u+x /etc/cont-init.d && \
+    chmod +x /usr/bin/service-handler
+
 
 ENTRYPOINT ["/init"]
