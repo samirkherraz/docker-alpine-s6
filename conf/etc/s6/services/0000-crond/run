@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service-handler "CRON" "cron -f" "/tmp/container.init.end"
