@@ -1,7 +1,8 @@
 FROM alpine:latest
 
+
 RUN set -x \
-    && S6_OVERLAY_VERSION=$( curl -s https://api.github.com/repos/just-containers/s6-overlay/releases/latest | grep "tag_name" | cut -d "\"" -f4 )  \
+    && export S6_OVERLAY_VERSION=$( curl -s https://api.github.com/repos/just-containers/s6-overlay/releases/latest | grep "tag_name" | cut -d "\"" -f4 )  \
     && wget https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
     && tar xfz s6-overlay-amd64.tar.gz -C / \
     && rm s6-overlay-amd64.tar.gz 
