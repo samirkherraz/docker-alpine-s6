@@ -15,6 +15,11 @@ then
     do
         sleep 1
     done 
+    if [ "x$(cat $WAIT)" != "x0" ];
+    then 
+        echo "[ Fail       ] - $NAME"
+        pkill -u root
+    fi
 fi
 
 echo "[ Starting   ] - $NAME"
