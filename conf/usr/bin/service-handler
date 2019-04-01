@@ -1,21 +1,19 @@
 #!/bin/sh
-
 NAME=$1
 EXEC=$2
 WAIT=$3
-
 while [ ! -f "/tmp/container.init.start" ];
 do 
         sleep 0.2
 done
 
-if [ -n $WAIT ] && [ "x$WAIT" != "x" ];
+if [ "x$WAIT" != "x" ];
 then
     while [ ! -f $WAIT ];
     do
         sleep 1
     done 
-    if [ "x$(cat $WAIT)" != "x0" ];
+    if [ "$(cat $WAIT)" != "0" ];
     then 
         echo "[ Fail       ] - $NAME"
         pkill -u root
